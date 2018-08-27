@@ -1,0 +1,40 @@
+{{>userTopMenu}}
+
+<div class="thong-tin-tai-khoan">
+        <form name="thong-tin" method="post" action="/user/editprofile">
+            <div>
+                <label for="edfullname">Họ tên: </label>
+                <button class="edit" id="edit-fullname">Sửa</button>
+                <input name="edfullname" type="text" id="edfullname" placeholder="{{fullname}}">
+            </div>
+
+            <div>
+                <label for="edemail">Email</label>
+                <button class="edit" id="edit-email">Sửa</button>
+                <input name="edemail" type="email" id="edemail" placeholder="{{email}}">
+            </div>
+
+            <div>
+                <label for="edpassword">Mật khẩu</label>
+                <button class="edit" id="edit-password">Sửa</button>
+                <input name="edpassword" type="password" id="edpassword" placeholder="*******">
+            </div>
+
+            <div>
+                <label for="edphonenumber">Số điện thoại</label>
+                <button class="edit" id="edit-phone">Sửa</button>
+                <input name="edphonenumber" type="tel" id="edphonenumber" placeholder="{{phonenumber}}">
+            </div>
+
+            <div>
+                <label for="edaddress">Địa chỉ</label>
+                <button class="edit" id="edit-address">Sửa</button>
+                <input name="edaddress" type="text" id="edaddress" placeholder="{{address}}">
+            </div>
+
+			<input class="csrfToken" type="hidden" name="_csrf" value="{{ csrfToken }}">
+            <input type="submit" value="Thay đổi">
+        </form>
+</div>
+
+

@@ -1,0 +1,51 @@
+{{#if login}}
+{{else}}
+	{{>loginForm}}
+	{{>signupForm}}
+{{/if}}
+
+
+{{>topMenu}}
+{{>slide}}
+
+<section id="qhuy-main-content " class="qhuy-user">
+	<div class="qhuy-container">
+        {{>sideMenu}}
+		<div class="qhuy-products">
+			{{#each listOfProducts}}
+				<div class="row">
+					{{#each this}}
+						<div class="col-3 {{#if this.isRootItem}}qhuy-root-item{{/if}}">
+                            <p class="qhuy-productid-hidden" style="display: none;">{{this.productID}}</p>
+							<a href="#">
+								<div class="qhuy-product-thumb-before-click">
+									<img src="{{this.productImage}}" alt="">
+								</div>
+								<div class="qhuy-product-desp-before-click">
+									<span class="qhuy-product-price-before-click">{{this.productPrice}} VNĐ</span>
+									<span class="qhuy-product-name-before-click">{{this.productName}}</span>
+								</div>
+							</a>
+						</div>
+					{{/each}}
+				</div>
+			{{/each}}
+            <!--
+			<div class="center">
+				<div class="pagination">
+					<a href="#">&laquo;</a>
+					<a href="#" class="act">1</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+					<a href="#">4</a>
+					<a href="#">5</a>
+					<a href="#">6</a>
+					<a href="#">&raquo;</a>
+				</div>
+			</div>
+            -->
+		</div>
+	</div>
+</section>
+
+{{>productDetail}}

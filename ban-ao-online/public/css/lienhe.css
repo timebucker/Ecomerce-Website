@@ -1,0 +1,50 @@
+.lien-he-content{
+    color: black;
+}
+
+.lien-he-content{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.lien-he-content .div-header div{
+    width: 25%;
+    text-align: left;
+}
+
+.lien-he-content .col1{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 15% !important;
+    float: left;
+ 
+}
+
+.lien-he-content .col2{
+    margin-top: 0px;
+    margin-left: 4%;
+    float: left;
+
+}
+
+.lien-he-content .col3{
+    margin-left: 3%;
+    float: left;
+  
+}
+
+.lien-he-content .col4{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    float: right ;
+    
+}
+
+.div-header{
+    border: solid black 1px;
+    margin-bottom: 10px;
+}
+
+.map{
+    margin-bottom: 25px;
+}

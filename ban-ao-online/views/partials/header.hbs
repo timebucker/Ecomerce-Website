@@ -1,0 +1,53 @@
+<header>
+	<div class="qhuy-container" id="top">
+		<div class="qhuy-logo">
+			<a href='/'>
+				<span class="qhuy-logo-img">
+					<img src="/img/logo/logo.png">
+				</span>
+				<span class="qhuy-logo-name">
+					<svg version="1.1" style="width: 100%" viewBox="0 0 190 38 ">
+						<text x="4" y="35" fill="black" font-size="28" font-weight="bold">Bán áo online</text>
+					</svg>
+				</span>
+			</a>    
+		</div>
+        {{#if login}}
+		<div class="qhuy-account-option">
+			<div class="qhuy-account-avatar">
+				<img src="/img/blank-avatar.png" alt="avatar">
+			</div>
+			<div class="qhuy-account-name">
+				<ul>
+                    {{#if isAdmin}}
+                    {{else}}
+                    <li> <a id="gio-hang" href="/shoppingcartdetail">
+                        <img id="cart-logo" src="/img/icon/cart.png">
+                        <strong>{{cartQuantity}} sản phẩm - {{cartPrice}} VNĐ</strong>
+                    </a></li>
+                    {{/if}}
+                    <li id="chao">{{#if isAdmin}}Chào Admin {{/if}}
+                        <a href="{{#if isAdmin}}/admin/dashboard{{else}}/user/profile{{/if}}">{{email}}</a>
+                    </li>
+                    <li>
+                        <a href="/user/logout" style="float:right;margin-right:30px;margin-left:10px;">
+                            <img style="margin-top:2px;display: block;width: 19px;" src="/img/icon/log-out.png">
+                        </a>
+                    </li>
+				</ul>
+			</div>
+		</div>
+        {{else}}
+		<nav class="qhuy-account-option">
+			<ul>
+				<li><a id="qhuy-login-btn" href="#">Đăng nhập</a></li>
+				<li><a id="qhuy-signup-btn" href="#">Đăng kí</a></li>
+				<li> <a id="gio-hang" href="/shoppingcartdetail">
+					<img id="cart-logo" src="/img/icon/cart.png">
+                    <strong>{{cartQuantity}} sản phẩm - {{cartPrice}} VNĐ</strong>
+				</a></li>
+			</ul>
+		</nav>
+        {{/if}}
+	</div>
+</header>

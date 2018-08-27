@@ -1,0 +1,60 @@
+<div id="qhuy-checkout-form" class="qhuy-modal">        
+	<form class="qhuy-modal-content qhuy-animate" action="/checkout" method="post">
+		<div class="qhuy-img-container">
+			<span class="qhuy-close" title="Close Modal">&times;</span>
+		</div>
+		<div class="qhuy-container qhuy-has-input">
+            <label for="totalAmount"><b>Tổng tiền</b></label>
+            <div id="totalAmount" style="
+                    width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                    color: #000000;
+                ">
+                {{cartPrice}} VNĐ
+            </div>
+
+			<label for="fullname"><b>Họ và tên</b></label>
+			<input type="text" placeholder="vd: Nguyen Quoc Huy" name="fullname" required>
+
+			<label for="address"><b>Địa chỉ</b></label>
+			<input type="text" placeholder="vd: A6, Phuong Tan Tien, Bien Hoa, Dong Nai" name="address" required>
+
+            <label for="card-element"><b>Credit or debit card</b></label>
+            <div id="card-element" style="
+                    width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                ">
+
+            </div>
+            <div id="card-errors" role="alert" style="
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+                display: none;
+            ">
+
+            </div>
+
+			<label for="cardowner"><b>Tên chủ sở hữu thẻ</b></label>
+			<input type="text" placeholder="vd: Nguyen Quoc Huy" name="cardowner" required>
+
+            <input class="csrfToken" type="hidden" name="_csrf" value="{{ csrfToken }}"> 
+			<button type="button">Thanh toán</button>
+		</div>
+		<div class="qhuy-container qhuy-footbox">
+			<button type="button" class="qhuy-cancelBtn">Hủy</button>
+		</div>
+	</form>
+</div>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/checkout.js"></script>
+

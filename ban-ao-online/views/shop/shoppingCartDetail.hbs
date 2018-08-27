@@ -1,0 +1,94 @@
+{{#if login}}
+    {{>checkoutForm}}
+{{else}}
+    {{>loginForm}}
+    {{>signupForm}}
+{{/if}}
+
+<div class="gio-hang-container">
+    <div class="shopping-cart">
+        <!-- Title -->
+        <div class="title">
+            Giỏ hàng
+        </div>
+        {{#each cartItems}}
+            <div class="item">
+                <span style="display: none;" class="cartItemID">{{this.cartItemID}}</span>
+                <div class="buttons">
+                    <a href="/removecartitem/{{this.cartItemID}}"><span class="delete-btn"></span></a>
+                    <span class="like-btn"></span>
+                </div>
+                <div class="image">
+                    <img src="{{this.pathToImg}}" alt="" style="width: 70px;"/>
+                </div>
+                <div class="description">
+                    <span>{{this.productName}}</span>
+                    <span>{{this.productDescription}}</span>
+                </div>
+                <div class="quantity">
+                    <!--
+                    <button class="minus-btn" type="button" name="button">
+                        <img src="/img/icon/minus.svg" alt="" />
+                    </button>
+                    -->
+                    <input type="text" name="name" value="{{this.itemQuantity}}" readonly>
+                    <!--
+                    <button class="plus-btn" type="button" name="button">
+                        <img src="/img/icon/plus.svg" alt="" />
+                    </button>
+                    -->
+                </div>
+                <div class="total-price">{{this.itemPrice}}</div>
+                <div class="currency">VNĐ</div>
+            </div>
+        {{/each}}
+        <div class="sum-price">
+            <span style="margin-right:50px">Tổng:</span>
+            <span class="so-luong">{{cartQuantity}}</span>
+            <span class="tong-tien">{{cartPrice}}</span>
+            <span>VNĐ</span>
+        </div>
+        <div class="button-xac-nhan">
+            <button type="button" id="button-cart" class="btn btn-primary btn-lg btn-block">
+                Đặt hàng
+            </button>
+        </div>
+        <script type="text/javascript">
+
+            $('.minus-btn').on('click', function (e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $input = $this.closest('div').find('input');
+                var value = parseInt($input.val());
+
+                if (value > 1) {
+                    value = value - 1;
+                } else {
+                    value = 0;
+                }
+
+                $input.val(value);
+            });
+
+            $('.plus-btn').on('click', function (e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $input = $this.closest('div').find('input');
+                var value = parseInt($input.val());
+
+                if (value < 100) {
+                    value = value + 1;
+                } else {
+                    value = 100;
+                }
+
+                $input.val(value);
+            });
+
+            $('.like-btn').on('click', function () {
+                $(this).toggleClass('is-active');
+            });
+        </script>
+    </div>
+</div>
+

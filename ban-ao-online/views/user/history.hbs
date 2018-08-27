@@ -1,0 +1,39 @@
+{{>userTopMenu}}
+<div class="lich-su-mua-hang">
+    <div class="ds-giao-dich" style="height: 537px; width: 80%; margin: 30px auto;">
+        <h2 style="color: black; margin-left: 15px;">Lịch sử mua hàng</h2>
+        <div id="chi-tiet-gd" style="margin-bottom: 150px;">
+            <table cellpadding="0" cellspacing="0" style="text-align: left;">
+                <tbody>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã sản phẩm</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Đơn giá</th>
+                        <th>Só lượng</th>
+                        <th>Thành tiền</th>
+                        <th>Thời gian mua</th>
+                    </tr>
+                    {{#each carts as |cart cartIndex|}}
+                        {{#each this.items}}
+                        <tr>
+                            {{#if this.isFirstRow}}
+                                <td rowspan="{{cart.numberOfItems}}" style="vertical-align: middle;">{{cart.cartNumber}}</td>
+                            {{/if}}
+                            <td>{{this.productID}}</td>
+                            <td>{{this.productName}}</td>
+                            <td>{{this.productPrice}}</td>
+                            <td>{{this.productQuantity}}</td>
+                            <td>{{this.itemTotal}}</td>
+                            {{#if this.isFirstRow}}
+                                <td rowspan="{{cart.numberOfItems}}" style="vertical-align: middle;">{{cart.checkoutDay}}</td>
+                            {{/if}}
+                        </tr>
+                        {{/each}}
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
